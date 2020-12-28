@@ -4,3 +4,5 @@
 
 **SwiftSearch** <https://sourceforge.net/projects/swiftsearch/>
 > Better [Everything]<https://www.voidtools.com/> alternative.
+
+**XMLmind** http://www.xmlmind.com/xmleditor/
