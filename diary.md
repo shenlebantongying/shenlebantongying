@@ -1,5 +1,8 @@
 # December 2020
 
+
+这段时间重新了一些代码，感觉就是 Java 味太浓，过度地切分文件，下次尽量只写在一个文件里面。
+
 Ranting:
 ---
 Maybe I dont know enough, but writing cross-platform application using C/C++ on Windows is super PAINFUL. Its basically Win32 and everything else.
