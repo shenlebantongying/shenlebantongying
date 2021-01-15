@@ -1,5 +1,4 @@
 # Annotated Boilerplate CMakeList.txt 
-# Original: https://gist.github.com/shenlebantongying/986d5197a9afc0a9544940dbe0cca95a
 
 #=================================
 
@@ -25,9 +24,9 @@ elseif (CMAKE_SYSTEM_NAME STREQUAL "Darwin")
 endif()
 
 
-# find a package
-
-# You can get a list of famous libs by `cmake --help-module-list`
+# Method1: find a package
+# => list packages built-in cmake
+# cmake --help-module-list
 
 find_package(LibXml2 REQUIRED)
 add_executable(libxml_playground main.c)
@@ -35,16 +34,25 @@ target_compile_definitions(libxml_playground PUBLIC ${LIBXML2_DEFINITIONS})
 target_include_directories(libxml_playground  PUBLIC ${LIBXML2_INCLUDE_DIRS})
 
 
-# example on how to use CMAKE with PkgConfig 
+# Method2: CMAKE with PkgConfig
+# => To get all pkg-config availiable.
+# pkg-config --list-all
+
 find_package (PkgConfig REQUIRED)
-pkg_check_modules (GTK3 REQUIRED gtk+-3.0)
+pkg_check_modules (CAIRO REQUIRED cairo>=1.5)
 
-include_directories (${GTK3_INCLUDE_DIRS})
-link_directories (${GTK3_LIBRARY_DIRS})
+include_directories(${CAIRO_INCLUDE_DIRS})
+link_directories (${CAIRO_LIBRARY_DIRS})
 
+add_executable(cairo_main main.cpp)
 
-# alternative way
+target_link_libraries(cairo_main PUBLIC
+        ${CAIRO_LIBRARIES})
+
+# Method3: modern find_library
 find_library(LIBRARY_SDL sdl)
+
+add_executable(sdl_main main.cpp)
 
 if (LIBRARY_SDL)
     target_link_libraries(myApp PRIVATE ${LIBRARY_SDL})
@@ -52,6 +60,7 @@ else()
     # throw an error or enable compilation without the library
 endif()
 
+# ===
 
 add_executable (gtk3-test main.c)
 
@@ -76,6 +85,8 @@ requested library. This is mostly useful on systems where pkg-config is already
 in use, so you do not need to replicate all the information for CMake. Note 
 that this approach has potential portability issues, since it requires 
 pkg-config to be setup correctly on the build machine.
+
++ https://cmake.org/cmake/help/latest/command/find_library.html
 
 # PKG config use folling path in OpenSUSE 15.2
 pkg-config --variable pc_path pkg-config
