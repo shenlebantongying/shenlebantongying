@@ -1,0 +1,50 @@
+TeXmacs
+
+pros:
+
+Better Integration with other softwares -> maxima/gnuplot etc.
+Highly customizable in case of functionality -> with scheme
+Better keyboard shortcuts (developed by real scientist).
+Source code is readable, since most of them are written by scheme.
+Better look and feel when editing.
+Easier to learn (less functionality and more "strict")
+
+A really good structure text editor => Its how the GOOD world supposed to be!
+The idea is really beyond time.
+
+cons:
+
+Still use old Guile1.x and interface is laggy (probably lack of manpower to improve)
+
+Lyx
+
+pros:
+
+Better Latex Export (Don't include any custom macros, i.e. 1 to 1 convert)
+Highly customizable in case of styles (easily use custom latex macros) 
+Potentially bigger dev group.
+
+cons:
+
+Have to copy things back and forth form external softwares.
+1 stable release per 2 years for many years. 
+
+Cons of both:
+
+Both use their very own format (.lyx and .tm)
+
+Conclusion:
+
+when you have to use a CAS or gnuplot => Texmacs
+For math only => Texmacs
+
+Lets go Texmacs anyway.
+
+When you may need complex formatting => lyx
+
+
+====
+
+refs:
+
+https://www.tug.org/TUGboat/tb23-1/kastrup.pdf
